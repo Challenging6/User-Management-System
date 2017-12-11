@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jsr303">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/dist" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/validation-api-2.0.0.Final-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../hibernate-validator-6.0.3.Final-dist/hibernate-validator-6.0.3.Final/dist" recursive="false" />
+  </library>
+</component>

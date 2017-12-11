@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="validation-api-2.0.0.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../validation-api-2.0.0.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/validation-api-2.0.0.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

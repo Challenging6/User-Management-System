@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.challenging.dao.CustomerDao">
+    <select id="queryById" resultType="Customer" parameterType="int">
+        SELECT
+        id,
+        username,
+        email,
+        age,
+        gender,
+        nickname,
+        phone,
+        last_login_time
+
+        FROM
+        customer
+        WHERE
+        id=#{id}
+    </select>
+
+    <select id="queryByEmail" resultType="Customer" parameterType="String">
+        SELECT
+        id,
+        username,
+        email,
+        age,
+        gender,
+        nickname,
+        phone,
+        last_login_time,
+        password
+        FROM
+        customer
+        WHERE
+        email=#{email}
+    </select>
+
+    <update id="updatePassword" parameterType="Customer">
+        UPDATE customer SET password=#{password} WHERE id=#{id}
+    </update>
+
+    <update id="updateCustomer" parameterType="Customer">
+        UPDATE customer Set nickname=#{nickname},phone=#{phone},age=#{age},gender=#{gender},email=#{email}, username=#{username} WHERE id=#{id}
+    </update>
+
+
+    <update id="updateLoginTime" parameterType="int">
+        UPDATE customer SET last_login_time=login_time,login_time=CURRENT_TIMESTAMP WHERE id=#{id}
+    </update>
+
+    <insert id="createNewAccount" parameterType="Customer">
+        INSERT INTO customer (username, nickname, password, age,
+                              phone, gender, email, create_time)
+                VALUES (#{username}, #{nickname}, #{password}, #{age}, #{phone},#{gender},#{email}, CURRENT_TIMESTAMP)
+    </insert>
+
+    <select id="books" parameterType="int" resultType="Book">
+      SELECT title, bookId, author, isbn, category  FROM booklist WHERE userid=#{userId}
+
+    </select>
+
+    <insert id="borrowBook" >
+        INSERT INTO booklist(userId, title, bookId, author, isbn, category)
+                VALUES (#{userId}, #{book.title}, #{book.bookId}, #{book.author}, #{book.isbn}, #{book.category})
+    </insert>
+
+
+    <delete id="returnBook">
+        DELETE FROM booklist WHERE bookId = #{book.bookId} AND userid=#{userId}
+    </delete>
+</mapper>

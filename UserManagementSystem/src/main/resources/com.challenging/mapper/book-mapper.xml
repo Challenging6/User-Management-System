@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.challenging.dao.BookDao">
+
+    <select id="queryById" resultType="Book" parameterType="int">
+        SELECT
+        bookId,
+        title,
+        isbn,
+        category,
+        author,
+        storeAmount,
+        lendingAmount
+        FROM
+        book
+        WHERE
+        bookId=#{bookId}
+    </select>
+
+    <update id="updateBook" parameterType="Book">
+        UPDATE book SET title=#{title}, isbn=#{isbn}, category=#{category},
+            author=#{author}, storeAmount=#{storeAmount}, lendingAmount=#{lendingAmount}
+        WHERE bookId=#{bookId};
+
+    </update>
+    <update id="updateBookList" parameterType="Book">
+        UPDATE booklist SET title=#{title}, isbn=#{isbn}, category=#{category},
+            author=#{author}
+        WHERE bookid=#{bookId}
+    </update>
+
+    <insert id="insertBook" parameterType="Book">
+        INSERT INTO book(title, isbn, category, author, storeAmount, lendingAmount)
+                VALUES (#{title}, #{isbn}, #{category}, #{author}, #{storeAmount}, #{lendingAmount})
+    </insert>
+
+    <select id="queryAllBook" resultType="Book">
+        select * FROM book
+    </select>
+
+    <delete id="deleteBook" parameterType="int">
+        DELETE FROM book WHERE bookId = #{bookId}
+    </delete>
+</mapper>
